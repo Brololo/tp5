@@ -6,7 +6,7 @@
 
 ### les admins se joignent entre eux
 
-- \*admin1> ping 10.5.10.12
+- admin1> ping 10.5.10.12
   84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.713 ms
   84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=1.367 ms
   84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.881 ms
@@ -15,12 +15,12 @@
 
 ### les guests se joignent entre eux
 
-guest1> ping 10.5.20.12
-84 bytes from 10.5.20.12 icmp_seq=1 ttl=64 time=1.084 ms
-84 bytes from 10.5.20.12 icmp_seq=2 ttl=64 time=0.895 ms
-84 bytes from 10.5.20.12 icmp_seq=3 ttl=64 time=1.557 ms
-84 bytes from 10.5.20.12 icmp_seq=4 ttl=64 time=1.019 ms
-84 bytes from 10.5.20.12 icmp_seq=5 ttl=64 time=1.489 ms
+- guest1> ping 10.5.20.12
+  84 bytes from 10.5.20.12 icmp_seq=1 ttl=64 time=1.084 ms
+  84 bytes from 10.5.20.12 icmp_seq=2 ttl=64 time=0.895 ms
+  84 bytes from 10.5.20.12 icmp_seq=3 ttl=64 time=1.557 ms
+  84 bytes from 10.5.20.12 icmp_seq=4 ttl=64 time=1.019 ms
+  84 bytes from 10.5.20.12 icmp_seq=5 ttl=64 time=1.489 ms
 
 ## 3.Setup VLANs
 
@@ -100,14 +100,14 @@ Et0/0 1,10,20
 
 ### les guests peuvent toujours se ping, idem pour les admins
 
-guest1> ping 10.5.20.12
-84 bytes from 10.5.20.12 icmp_seq=1 ttl=64 time=0.326 ms
-84 bytes from 10.5.20.12 icmp_seq=2 ttl=64 time=4.196 ms
-84 bytes from 10.5.20.12 icmp_seq=3 ttl=64 time=0.494 ms
-84 bytes from 10.5.20.12 icmp_seq=4 ttl=64 time=0.461 ms
-84 bytes from 10.5.20.12 icmp_seq=5 ttl=64 time=0.434 ms
+- guest1> ping 10.5.20.12
+  84 bytes from 10.5.20.12 icmp_seq=1 ttl=64 time=0.326 ms
+  84 bytes from 10.5.20.12 icmp_seq=2 ttl=64 time=4.196 ms
+  84 bytes from 10.5.20.12 icmp_seq=3 ttl=64 time=0.494 ms
+  84 bytes from 10.5.20.12 icmp_seq=4 ttl=64 time=0.461 ms
+  84 bytes from 10.5.20.12 icmp_seq=5 ttl=64 time=0.434 ms
 
-- \*admin1> ping 10.5.10.12
+* admin1> ping 10.5.10.12
   84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.286 ms
   84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=0.460 ms
   84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.543 ms
@@ -116,12 +116,12 @@ guest1> ping 10.5.20.12
 
 ### montrer que si un des guests change d'IP vers une IP du réseau admins, il ne peut PAS joindre les autres admins
 
-guest1> ip 10.5.10.13
-Checking for duplicate address...
-PC1 : 10.5.10.13 255.255.255.0
+- guest1> ip 10.5.10.13
+  Checking for duplicate address...
+  PC1 : 10.5.10.13 255.255.255.0
 
-guest1> ping 10.5.10.11
-host (10.5.10.11) not reachable
+- guest1> ping 10.5.10.11
+  host (10.5.10.11) not reachable
 
 # II. Topologie 2 - VLAN, sous-interface, NAT
 
@@ -175,19 +175,19 @@ PC1 : 10.5.10.14 255.255.255.0
 guest3> ping 10.5.10.11
 host (10.5.10.11) not reachable
 
-guest2> ip 10.5.10.14
-Checking for duplicate address...
-PC1 : 10.5.10.14 255.255.255.0
+- guest2> ip 10.5.10.14
+  Checking for duplicate address...
+  PC1 : 10.5.10.14 255.255.255.0
 
-guest2> ping 10.5.10.11
-host (10.5.10.11) not reachable
+- guest2> ping 10.5.10.11
+  host (10.5.10.11) not reachable
 
-guest1> ip 10.5.10.14
-Checking for duplicate address...
-PC1 : 10.5.10.14 255.255.255.0
+* guest1> ip 10.5.10.14
+  Checking for duplicate address...
+  PC1 : 10.5.10.14 255.255.255.0
 
-guest1> ping 10.5.10.11
-host (10.5.10.11) not reachable
+* guest1> ping 10.5.10.11
+  host (10.5.10.11) not reachable
 
 ## 🌞 Configurez les sous-interfaces de votre routeur
 
@@ -206,26 +206,26 @@ conf t
 
 ## 🌞 Vérifier que les clients et les guests peuvent maintenant ping leur passerelle respective
 
-guest2> ping 10.5.20.254
-84 bytes from 10.5.20.254 icmp_seq=1 ttl=255 time=20.151 ms
-84 bytes from 10.5.20.254 icmp_seq=2 ttl=255 time=6.848 ms
-84 bytes from 10.5.20.254 icmp_seq=3 ttl=255 time=5.083 ms
-84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=6.994 ms
-84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=8.788 ms
+- guest2> ping 10.5.20.254
+  84 bytes from 10.5.20.254 icmp_seq=1 ttl=255 time=20.151 ms
+  84 bytes from 10.5.20.254 icmp_seq=2 ttl=255 time=6.848 ms
+  84 bytes from 10.5.20.254 icmp_seq=3 ttl=255 time=5.083 ms
+  84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=6.994 ms
+  84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=8.788 ms
 
-guest2> ip 10.5.10.15
-Checking for duplicate address...
-PC1 : 10.5.10.15 255.255.255.0
+- guest2> ip 10.5.10.15
+  Checking for duplicate address...
+  PC1 : 10.5.10.15 255.255.255.0
 
-guest2> ping 10.5.10.254
-host (10.5.10.254) not reachable
+- guest2> ping 10.5.10.254
+  host (10.5.10.254) not reachable
 
-guest2> ping 10.5.10.254
-84 bytes from 10.5.10.254 icmp_seq=1 ttl=255 time=9.838 ms
-84 bytes from 10.5.10.254 icmp_seq=2 ttl=255 time=6.406 ms
-84 bytes from 10.5.10.254 icmp_seq=3 ttl=255 time=5.883 ms
-84 bytes from 10.5.10.254 icmp_seq=4 ttl=255 time=6.261 ms
-84 bytes from 10.5.10.254 icmp_seq=5 ttl=255 time=4.203 ms
+- guest2> ping 10.5.10.254
+  84 bytes from 10.5.10.254 icmp_seq=1 ttl=255 time=9.838 ms
+  84 bytes from 10.5.10.254 icmp_seq=2 ttl=255 time=6.406 ms
+  84 bytes from 10.5.10.254 icmp_seq=3 ttl=255 time=5.883 ms
+  84 bytes from 10.5.10.254 icmp_seq=4 ttl=255 time=6.261 ms
+  84 bytes from 10.5.10.254 icmp_seq=5 ttl=255 time=4.203 ms
 
 admin2> ping 10.5.10.254
 84 bytes from 10.5.10.254 icmp_seq=1 ttl=255 time=8.590 ms
@@ -248,19 +248,19 @@ guest3> ping 10.5.20.254
 84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=7.445 ms
 84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=6.099 ms
 
-- \*admin1> ping 10.5.10.254
+- admin1> ping 10.5.10.254
   84 bytes from 10.5.10.254 icmp_seq=1 ttl=255 time=9.651 ms
   84 bytes from 10.5.10.254 icmp_seq=2 ttl=255 time=4.455 ms
   84 bytes from 10.5.10.254 icmp_seq=3 ttl=255 time=8.231 ms
   84 bytes from 10.5.10.254 icmp_seq=4 ttl=255 time=9.521 ms
   84 bytes from 10.5.10.254 icmp_seq=5 ttl=255 time=13.511 ms
 
-guest1> ping 10.5.20.254
-84 bytes from 10.5.20.254 icmp_seq=1 ttl=255 time=8.972 ms
-84 bytes from 10.5.20.254 icmp_seq=2 ttl=255 time=5.524 ms
-84 bytes from 10.5.20.254 icmp_seq=3 ttl=255 time=8.387 ms
-84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=9.761 ms
-84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=12.590 ms
+* guest1> ping 10.5.20.254
+  84 bytes from 10.5.20.254 icmp_seq=1 ttl=255 time=8.972 ms
+  84 bytes from 10.5.20.254 icmp_seq=2 ttl=255 time=5.524 ms
+  84 bytes from 10.5.20.254 icmp_seq=3 ttl=255 time=8.387 ms
+  84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=9.761 ms
+  84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=12.590 ms
 
 ## 🌞 Configurer un source NAT sur le routeur (comme au TP4)
 
@@ -281,7 +281,7 @@ Interfaces "internes" :
 
 ## 🌞 Vérifier que les clients et les admins peuvent joindre Internet
 
-- \*admin1> ping 8.8.8.8
+- admin1> ping 8.8.8.8
   84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=74.500 ms
   84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=24.302 ms
   84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=40.425 ms
@@ -302,19 +302,19 @@ admin3> ping 8.8.8.8
 84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=27.199 ms
 84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=41.959 ms
 
-guest1> ping 8.8.8.8
-84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=30.073 ms
-84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=37.486 ms
-84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=25.195 ms
-84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=34.001 ms
-84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=32.531 ms
+- guest1> ping 8.8.8.8
+  84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=30.073 ms
+  84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=37.486 ms
+  84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=25.195 ms
+  84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=34.001 ms
+  84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=32.531 ms
 
-guest2> ping 8.8.8.8
-84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=25.083 ms
-84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=31.136 ms
-84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=22.926 ms
-84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=22.142 ms
-84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=23.502 ms
+* guest2> ping 8.8.8.8
+  84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=25.083 ms
+  84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=31.136 ms
+  84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=22.926 ms
+  84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=22.142 ms
+  84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=23.502 ms
 
 guest3> ping 8.8.8.8
 84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=29.951 ms
@@ -367,8 +367,8 @@ option broadcast-address 10.5.20.255;
 
 ## 🌞 Vérifier et prouver qu'un client branché à client-sw3 peut récupérer une IP dynamiquement.
 
-guest2> ip dhcp
-DDORA IP 10.5.20.100/24 GW 10.5.20.254
+- guest2> ip dhcp
+  DDORA IP 10.5.20.100/24 GW 10.5.20.254
 
 AH! oOpS c'était pas le bon switch 🙃
 
