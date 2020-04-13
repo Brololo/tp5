@@ -6,12 +6,12 @@
 
 ### les admins se joignent entre eux
 
-- [admin3>] (ping 10.5.10.12
+- [admin3>] ping 10.5.10.12
   84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.713 ms
   84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=1.367 ms
   84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.881 ms
   84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=1.060 ms
-  84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.832 ms)
+  84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.832 ms
 
 ### les guests se joignent entre eux
 
