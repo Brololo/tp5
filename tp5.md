@@ -6,12 +6,12 @@
 
 ### les admins se joignent entre eux
 
-admin1> ping 10.5.10.12
-84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.713 ms
-84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=1.367 ms
-84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.881 ms
-84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=1.060 ms
-84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.832 ms
+- admin1> ping 10.5.10.12
+  84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.713 ms
+  84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=1.367 ms
+  84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.881 ms
+  84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=1.060 ms
+  84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.832 ms
 
 ### les guests se joignent entre eux
 
@@ -107,12 +107,12 @@ guest1> ping 10.5.20.12
 84 bytes from 10.5.20.12 icmp_seq=4 ttl=64 time=0.461 ms
 84 bytes from 10.5.20.12 icmp_seq=5 ttl=64 time=0.434 ms
 
-admin1> ping 10.5.10.12
-84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.286 ms
-84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=0.460 ms
-84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.543 ms
-84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=0.431 ms
-84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.402 ms
+- admin1> ping 10.5.10.12
+  84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.286 ms
+  84 bytes from 10.5.10.12 icmp_seq=2 ttl=64 time=0.460 ms
+  84 bytes from 10.5.10.12 icmp_seq=3 ttl=64 time=0.543 ms
+  84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=0.431 ms
+  84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.402 ms
 
 ### montrer que si un des guests change d'IP vers une IP du réseau admins, il ne peut PAS joindre les autres admins
 
@@ -248,12 +248,12 @@ guest3> ping 10.5.20.254
 84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=7.445 ms
 84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=6.099 ms
 
-admin1> ping 10.5.10.254
-84 bytes from 10.5.10.254 icmp_seq=1 ttl=255 time=9.651 ms
-84 bytes from 10.5.10.254 icmp_seq=2 ttl=255 time=4.455 ms
-84 bytes from 10.5.10.254 icmp_seq=3 ttl=255 time=8.231 ms
-84 bytes from 10.5.10.254 icmp_seq=4 ttl=255 time=9.521 ms
-84 bytes from 10.5.10.254 icmp_seq=5 ttl=255 time=13.511 ms
+- admin1> ping 10.5.10.254
+  84 bytes from 10.5.10.254 icmp_seq=1 ttl=255 time=9.651 ms
+  84 bytes from 10.5.10.254 icmp_seq=2 ttl=255 time=4.455 ms
+  84 bytes from 10.5.10.254 icmp_seq=3 ttl=255 time=8.231 ms
+  84 bytes from 10.5.10.254 icmp_seq=4 ttl=255 time=9.521 ms
+  84 bytes from 10.5.10.254 icmp_seq=5 ttl=255 time=13.511 ms
 
 guest1> ping 10.5.20.254
 84 bytes from 10.5.20.254 icmp_seq=1 ttl=255 time=8.972 ms
@@ -281,12 +281,12 @@ Interfaces "internes" :
 
 ## 🌞 Vérifier que les clients et les admins peuvent joindre Internet
 
-admin1> ping 8.8.8.8
-84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=74.500 ms
-84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=24.302 ms
-84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=40.425 ms
-84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=24.952 ms
-84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=33.208 ms
+- admin1> ping 8.8.8.8
+  84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=74.500 ms
+  84 bytes from 8.8.8.8 icmp_seq=2 ttl=51 time=24.302 ms
+  84 bytes from 8.8.8.8 icmp_seq=3 ttl=51 time=40.425 ms
+  84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=24.952 ms
+  84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=33.208 ms
 
 admin2> ping 8.8.8.8
 84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=39.483 ms
