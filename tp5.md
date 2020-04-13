@@ -1,10 +1,10 @@
-I. Toplogie 1 - intro VLAN
+# I. Toplogie 1 - intro VLAN
 
-2. Setup clients
+## 2.Setup clients
 
-🌞 Tout ce beau monde doit se ping
+## 🌞 Tout ce beau monde doit se ping
 
-les admins se joignent entre eux
+### les admins se joignent entre eux
 
 admin1> ping 10.5.10.12
 84 bytes from 10.5.10.12 icmp_seq=1 ttl=64 time=0.713 ms
@@ -13,7 +13,7 @@ admin1> ping 10.5.10.12
 84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=1.060 ms
 84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.832 ms
 
-les guests se joignent entre eux
+### les guests se joignent entre eux
 
 guest1> ping 10.5.20.12
 84 bytes from 10.5.20.12 icmp_seq=1 ttl=64 time=1.084 ms
@@ -22,11 +22,11 @@ guest1> ping 10.5.20.12
 84 bytes from 10.5.20.12 icmp_seq=4 ttl=64 time=1.019 ms
 84 bytes from 10.5.20.12 icmp_seq=5 ttl=64 time=1.489 ms
 
-3. Setup VLANs
+## 3.Setup VLANs
 
-🌞 Mettez en place les VLANs sur vos switches
+## 🌞 Mettez en place les VLANs sur vos switches
 
-les ports vers les clients (admins et guests) sont en access
+### les ports vers les clients (admins et guests) sont en access
 
 IOU1#show vlan brief
 
@@ -64,7 +64,7 @@ Et3/3
 1004 fddinet-default act/unsup
 1005 trnet-default act/unsup
 
-les ports qui relient deux switches sont en trunk
+### les ports qui relient deux switches sont en trunk
 
 IOU1#show interface trunk
 
@@ -96,9 +96,9 @@ Et0/0 1,10,20
 Port Vlans in spanning tree forwarding state and not pruned
 Et0/0 1,10,20
 
-🌞 Vérifier que
+## 🌞 Vérifier que
 
-les guests peuvent toujours se ping, idem pour les admins
+### les guests peuvent toujours se ping, idem pour les admins
 
 guest1> ping 10.5.20.12
 84 bytes from 10.5.20.12 icmp_seq=1 ttl=64 time=0.326 ms
@@ -114,7 +114,7 @@ admin1> ping 10.5.10.12
 84 bytes from 10.5.10.12 icmp_seq=4 ttl=64 time=0.431 ms
 84 bytes from 10.5.10.12 icmp_seq=5 ttl=64 time=0.402 ms
 
-montrer que si un des guests change d'IP vers une IP du réseau admins, il ne peut PAS joindre les autres admins
+### montrer que si un des guests change d'IP vers une IP du réseau admins, il ne peut PAS joindre les autres admins
 
 guest1> ip 10.5.10.13
 Checking for duplicate address...
@@ -123,13 +123,13 @@ PC1 : 10.5.10.13 255.255.255.0
 guest1> ping 10.5.10.11
 host (10.5.10.11) not reachable
 
-II. Topologie 2 - VLAN, sous-interface, NAT
+# II. Topologie 2 - VLAN, sous-interface, NAT
 
-2. Adressage
+## 2.Adressage
 
-🌞 Vérifier que :
+## 🌞 Vérifier que :
 
-les guests peuvent ping les autres guests
+### les guests peuvent ping les autres guests
 
 guest3> ping 10.5.20.11
 84 bytes from 10.5.20.11 icmp_seq=1 ttl=64 time=0.412 ms
@@ -138,7 +138,7 @@ guest3> ping 10.5.20.11
 84 bytes from 10.5.20.11 icmp_seq=4 ttl=64 time=0.664 ms
 84 bytes from 10.5.20.11 icmp_seq=5 ttl=64 time=0.572 ms
 
-les admins peuvent ping les autres admins
+### les admins peuvent ping les autres admins
 
 admin3> ping 10.5.10.11
 84 bytes from 10.5.10.11 icmp_seq=1 ttl=64 time=0.557 ms
@@ -147,9 +147,9 @@ admin3> ping 10.5.10.11
 84 bytes from 10.5.10.11 icmp_seq=4 ttl=64 time=0.653 ms
 84 bytes from 10.5.10.11 icmp_seq=5 ttl=64 time=2.635 ms
 
-3. VLAN
+## 3.VLAN
 
-🌞 Configurez les VLANs sur l'ensemble des switches
+## 🌞 Configurez les VLANs sur l'ensemble des switches
 
 conf t
 
@@ -166,7 +166,7 @@ conf t
 (config-if)# switchport access vlan <10 pour admins et 20 pour guests>
 (config-if)# exit
 
-🌞 Vérifier et prouver qu'un guest qui prend un IP du réseau admins ne peut joindre aucune machine.
+## 🌞 Vérifier et prouver qu'un guest qui prend un IP du réseau admins ne peut joindre aucune machine.
 
 guest3> ip 10.5.10.14
 Checking for duplicate address...
@@ -189,7 +189,7 @@ PC1 : 10.5.10.14 255.255.255.0
 guest1> ping 10.5.10.11
 host (10.5.10.11) not reachable
 
-🌞 Configurez les sous-interfaces de votre routeur
+## 🌞 Configurez les sous-interfaces de votre routeur
 
 conf t
 (config)# interface fastEthernet1/0.10
@@ -204,7 +204,7 @@ conf t
 (config)# no shut
 (config-if)# exit
 
-🌞 Vérifier que les clients et les guests peuvent maintenant ping leur passerelle respective
+## 🌞 Vérifier que les clients et les guests peuvent maintenant ping leur passerelle respective
 
 guest2> ping 10.5.20.254
 84 bytes from 10.5.20.254 icmp_seq=1 ttl=255 time=20.151 ms
@@ -262,7 +262,7 @@ guest1> ping 10.5.20.254
 84 bytes from 10.5.20.254 icmp_seq=4 ttl=255 time=9.761 ms
 84 bytes from 10.5.20.254 icmp_seq=5 ttl=255 time=12.590 ms
 
-🌞 Configurer un source NAT sur le routeur (comme au TP4)
+## 🌞 Configurer un source NAT sur le routeur (comme au TP4)
 
 Interfaces "externes" :
 (config)# interface fastEthernet 0/0
@@ -279,7 +279,7 @@ Interfaces "internes" :
 
 (config)# ip nat inside source list 1 interface fastEthernet 0/0 overload
 
-🌞 Vérifier que les clients et les admins peuvent joindre Internet
+## 🌞 Vérifier que les clients et les admins peuvent joindre Internet
 
 admin1> ping 8.8.8.8
 84 bytes from 8.8.8.8 icmp_seq=1 ttl=51 time=74.500 ms
@@ -323,51 +323,49 @@ guest3> ping 8.8.8.8
 84 bytes from 8.8.8.8 icmp_seq=4 ttl=51 time=24.019 ms
 84 bytes from 8.8.8.8 icmp_seq=5 ttl=51 time=27.551 ms
 
-🌞 Vérifier et prouver qu'un client branché à client-sw3 peut récupérer une IP dynamiquement.
+## 🌞 Vérifier et prouver qu'un client branché à client-sw3 peut récupérer une IP dynamiquement.
 
-serv dhcp (j'ai changé les bails comme je pensais que ça passait 🤠)
+### serv dhcp (j'ai changé les bails comme je pensais que ça passait 🤠)
 
-# DHCP Server Configuration file.
+DHCP Server Configuration file.
 
-# see /usr/share/doc/dhcp\*/dhcpd.conf.example see dhcpd.conf(5) man page
+see /usr/share/doc/dhcp\*/dhcpd.conf.example see dhcpd.conf(5) man page
 
-#
-
-# DHCP lease lifecycle
+DHCP lease lifecycle
 
 default-lease-time 600; max-lease-time 7200;
 
-# This server is the only DHCP server we got So it is the authoritative one
+This server is the only DHCP server we got So it is the authoritative one
 
 authoritative;
 
-# Configure logging
+Configure logging
 
 log-facility local7;
 
-# Actually configure the DHCP server to serve our network
+Actually configure the DHCP server to serve our network
 
 subnet 10.5.20.0 netmask 255.255.255.0 {
 
-# IPs that our DHCP server can give to client
+IPs that our DHCP server can give to client
 
 range 10.5.20.100 10.5.20.150;
 
-# Domain name served and DNS server (optional) The DHCP server gives this info to clients
+Domain name served and DNS server (optional) The DHCP server gives this info to clients
 
 option domain-name "tp5-b1";
 option domain-name-servers 1.1.1.1;
 
-# Gateway of the network (optional) The DHCP server gives this info to clients
+Gateway of the network (optional) The DHCP server gives this info to clients
 
 option routers 10.5.20.254;
 
-# Specify broadcast addres of the network (optional)
+Specify broadcast addres of the network (optional)
 
 option broadcast-address 10.5.20.255;
 }
 
-🌞 Vérifier et prouver qu'un client branché à client-sw3 peut récupérer une IP dynamiquement.
+## 🌞 Vérifier et prouver qu'un client branché à client-sw3 peut récupérer une IP dynamiquement.
 
 guest2> ip dhcp
 DDORA IP 10.5.20.100/24 GW 10.5.20.254
@@ -377,9 +375,9 @@ AH! oOpS c'était pas le bon switch 🙃
 guest3> ip dhcp
 DDORA IP 10.5.20.101/24 GW 10.5.20.254
 
-🌞 Tester que le serveur Web fonctionne
+## 🌞 Tester que le serveur Web fonctionne
 
-depuis le serveur web lui-même : curl localhost:80
+### depuis le serveur web lui-même : curl localhost:80
 
 [root@web ~]# curl localhost:80
 
@@ -542,7 +540,7 @@ href="http://wiki.centos.org/FAQ/">FAQ</a>.</p>
 </body>
 </html>
 
-depuis une autre machine du réseau : curl 10.5.30.12:80------------------------------------------------------------------------------------------
+### depuis une autre machine du réseau : curl 10.5.30.12:80-------------------------------------------------------
 
 [root@dhcp ~]# curl 10.5.30.12:80
 
@@ -705,63 +703,61 @@ href="http://wiki.centos.org/FAQ/">FAQ</a>.</p>
 </body>
 </html>
 
----
+# A partir de là j'ai continué comme je pouvais j'ai pas réussi à faire démarrer le serv dns. 😶
 
-🌞 Ouvrir le port firewall lié au DHCP
+## 🌞 Ouvrir le port firewall lié au DHCP
 
-utilisez la commande ss pour trouver quel(s) port(s) vous devez ouvrir
+### utilisez la commande ss pour trouver quel(s) port(s) vous devez ouvrir
 
 [root@dns ~]# ss -lnutp
 Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port udp UNCONN 0 0 _:68 _:\* users:(("dhclient",pid=872,fd=6))
 
-ouvrez le port dans le firewall
+### ouvrez le port dans le firewall
 
-On ouvre le port 68 en udp.
+### On ouvre le port 68 en udp.
 
 firewall-cmd --add-port=68/udp --permanent
 
-🌞 Ajouter l'option DHCP liée au DHCP
+## 🌞 Ajouter l'option DHCP liée au DHCP
 
-modifier la configuration de votre serveur DHCP pour qu'ils fournissent les options suivantes :
+### modifier la configuration de votre serveur DHCP pour qu'ils fournissent les options suivantes :
 
 adresse de la passerelle
 adresse du serveur DNS de l'infra
 
 DHCP Server Configuration file.
 
-# see /usr/share/doc/dhcp\*/dhcpd.conf.example see dhcpd.conf(5) man page
+see /usr/share/doc/dhcp\*/dhcpd.conf.example see dhcpd.conf(5) man page
 
-#
-
-# DHCP lease lifecycle
+DHCP lease lifecycle
 
 default-lease-time 600; max-lease-time 7200;
 
-# This server is the only DHCP server we got So it is the authoritative one
+This server is the only DHCP server we got So it is the authoritative one
 
 authoritative;
 
-# Configure logging
+Configure logging
 
 log-facility local7;
 
-# Actually configure the DHCP server to serve our network
+Actually configure the DHCP server to serve our network
 
 subnet 10.5.20.0 netmask 255.255.255.0 {
 
-# IPs that our DHCP server can give to client
+IPs that our DHCP server can give to client
 
 range 10.5.20.100 10.5.20.150;
 
-# Domain name served and DNS server (optional) The DHCP server gives this info to clients
+Domain name served and DNS server (optional) The DHCP server gives this info to clients
 
 option domain-name "tp5-b1";
 option domain-name-servers 10.5.30.11;
 
-# Gateway of the network (optional) The DHCP server gives this info to clients
+Gateway of the network (optional) The DHCP server gives this info to clients
 
 option routers 10.5.20.254;
 
-# Specify broadcast addres of the network (optional)
+Specify broadcast addres of the network (optional)
 
 option broadcast-address 10.5.20.255;
